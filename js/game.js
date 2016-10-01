@@ -7,7 +7,7 @@ $(function(){
 	const clickbound=Math.floor(winWidth/3);//左中右点击边界
 	const cns=document.getElementById("colorblock");//canvas画布对象
 	const cell=20;//块的边长
-	const imgArr=["bgpx.png","block_1.png","block_2.png","block_3.png","block_4.png"];//要加载的图片数组blue/yellow/green/red
+	const imgArr=["background.jpg","bgpx.png","block_1.png","block_2.png","block_3.png","block_4.png"];//要加载的图片数组blue/yellow/green/red
 	//参数
 	const config={
 		I:-1,               //方块出现的起始行位置
@@ -149,7 +149,7 @@ $(function(){
 					if(x>=0&&x<=clickbound*1){
 						that.setSite(-1)
 					}else if(x>1*clickbound&&x<=2*clickbound){
-						console.log("mid");
+						//that.rotate();
 					}else{
 						that.setSite(1);}
 					})
@@ -212,7 +212,6 @@ $(function(){
 						break;
 					}
 				}
-
 				if(i==length){
 					this.block.shame.forEach(function(item){
 						if(item.i>=0){
@@ -234,9 +233,10 @@ $(function(){
 					})
 				}
 			},
+
 		};	
 		background.init();
-		background.start();
+		//background.start();
 	}
 
 	//入口函数
