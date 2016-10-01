@@ -236,7 +236,7 @@ $(function(){
 
 		};	
 		background.init();
-		//background.start();
+		background.start();
 	}
 
 	//入口函数
