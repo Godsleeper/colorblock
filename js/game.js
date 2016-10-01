@@ -20,7 +20,7 @@ $(function(){
 	//遮罩
 	~function beforeStart(){
 		$("body").height(winHeight+"px");
-		$("body").click(()=>{	
+		$("body").on("tap",()=>{	
 			$(".mask").css({
 				display:"none"
 			});
@@ -144,7 +144,7 @@ $(function(){
 						ctx.drawImage(this.bgimg,j*cell,i*cell,this.bgimg.width,this.bgimg.height);
 					}
 				}
-				$("body").click((event)=>{
+				$("body").on("tap",(event)=>{
 					var x=event.pageX;
 					if(x>=0&&x<=clickbound*1){
 						that.setSite(-1)
@@ -232,6 +232,9 @@ $(function(){
 						}
 					})
 				}
+			},
+			reachBottom:function(){
+
 			},
 
 		};	
