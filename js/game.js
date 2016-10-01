@@ -20,7 +20,7 @@ $(function(){
 	//遮罩
 	~function beforeStart(){
 		$("body").height(winHeight+"px");
-		$("body").click(function(){	
+		$("body").click(()=>{	
 			$(".mask").css({
 				display:"none"
 			});
