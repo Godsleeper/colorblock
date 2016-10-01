@@ -234,40 +234,9 @@ $(function(){
 					})
 				}
 			},
-			// setSite: function (dir) { // 设置左右移动后的位置
-   //              var i, o, l = this.block.shame.length;
-   //              for(i = 0; i < l; i ++){
-   //                  o = this.block.shame[i];
-   //                  // 是否碰到已存在的方块，是否碰到左右边界
-   //                  if(o.i >= 0 && ((background.matrix[o.i][o.j + dir] == 1) || (o.j + dir == -1 || o.j + dir == 12))){
-   //                      break; // 一旦发生碰撞，就退出循环，并不执行移动操作
-   //                  }
-   //              }
-   //              if(i == l) { // 当count=l时，表明移动操作没有发生碰撞
-   //                  this.block.shame.forEach(function (o) {
-   //                      if (o.i >= 0) {
-   //                          background.matrix[o.i][o.j] = -1; // 将当前位置置为-1
-   //                          o.j = (o.j + dir == -1 || o.j + dir == 12) ? o.j : o.j + dir; // 是否允许移动，允许则将o.j+dir的值赋予o.j
-   //                          switch(o.color){
-			// 					case 1:
-			// 					background.matrix[o.i][o.j]=5;break;
-			// 					case 2:
-			// 					background.matrix[o.i][o.j]=6;break;
-			// 					case 3:
-			// 					background.matrix[o.i][o.j]=7;break;
-			// 					case 4:
-			// 					background.matrix[o.i][o.j]=8;break;
-			// 					}
-   //                      }
-   //                      else { // 小于0时（在矩阵之外），也需进行左右移动
-   //                          o.j = (o.j + dir == -1 || o.j + dir == 12) ? o.j : o.j + dir;
-   //                      }
-   //                  });
-   //              }
-   //          },
 		};	
 		background.init();
-		//background.start();
+		background.start();
 	}
 
 	//入口函数
