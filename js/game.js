@@ -44,7 +44,13 @@ $(function(){
 					this.height=this.height;
 					this.width=this.width;
 					_temp++;
+					var rate=Math.floor((_temp/imgs.length)*100);
+					console.log(rate);
+					$("#loadrate").text(rate+"%");
 					if(_temp>=imgs.length){
+						$(".main").css({
+							display:"block"
+						})
 						callback&&callback(cns,imgObjs);
 					}
 				}
