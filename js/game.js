@@ -20,11 +20,6 @@ $(function(){
 	//遮罩
 	~function beforeStart(){
 		$("body").height(winHeight+"px");
-		$("body").on("click",()=>{	
-			$(".mask").css({
-				display:"none"
-			});
-		})
 		main();
 	}();
 
@@ -51,7 +46,12 @@ $(function(){
 						$(".main").css({
 							display:"block"
 						})
-						callback&&callback(cns,imgObjs);
+						$("body").on("click",()=>{	
+							$(".mask").css({
+								display:"none"
+							});
+							callback&&callback(cns,imgObjs);
+						})
 					}
 				}
 			}
