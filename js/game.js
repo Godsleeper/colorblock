@@ -144,7 +144,7 @@ $(function(){
 						ctx.drawImage(this.bgimg,j*cell,i*cell,this.bgimg.width,this.bgimg.height);
 					}
 				}
-				$(".main").on("tap",(event)=>{
+				$(".main").on("click",(event)=>{
 					var x=event.pageX;
 					if(x>=0&&x<=clickbound*1){
 						that.setSite(-1)
