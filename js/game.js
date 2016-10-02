@@ -381,7 +381,7 @@ $(function(){
                 var dmat = this.detectMat(); // 返回整行都有方块的行号集合
                 if(dmat){
                     this.score = this.score + (dmat.length == 1 ? 100 : dmat.length == 2 ? 250 : dmat.length == 3 ? 450 : 700);
-                    $(".score").innerHTML = this.score.toString();
+                    $("#score").text(this.score.toString());
                     dmat.forEach(function (d) {
                         background.matrix.splice(d, 1); // 删掉整行都有方块的行
                         background.matrix.unshift([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]); // 弥补被删的行
