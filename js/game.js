@@ -20,7 +20,7 @@ $(function(){
 	//遮罩
 	~function beforeStart(){
 		$("body").height(winHeight+"px");
-		$("#enterbtn").on("click",()=>{	
+		$("body").on("click",()=>{	
 			$(".mask").css({
 				display:"none"
 			});
@@ -239,7 +239,7 @@ $(function(){
 
 		};	
 		background.init();
-		//background.start();
+		background.start();
 	}
 
 	//入口函数
