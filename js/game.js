@@ -68,6 +68,7 @@ $(function(){
 	function canvas(cns,imgObjs){
 		var ctx=cns.getContext('2d');//获得2d上下文
 		var timer=null;//时间
+		var next=random(5);
 		//方块
 		var block=function(type){
 			this.type=type;//类型 
@@ -157,7 +158,7 @@ $(function(){
 			block:new block(1),
 			matrix:new Array(21),
 			score:0,//分数
-			next:1,
+			next:next,
 			init:function(){
 				var that=this;
 				for(var i=0;i<21;i++){
@@ -288,12 +289,20 @@ $(function(){
 							if(xy.i>=0){
 								that.matrix[xy.i][xy.j]=xy.color;
 							}else{
+								that.gameover();
 								return;
 							}
 						}
 						that.block = new block(parseInt(Math.random()*5)+1);
 					}
 				}
+			},
+			gameover:function(){
+				clearInterval(timer);
+				$(".rate").html("<span style='color:#FF3C3C;font-weight:bold'>你挂了,嘻嘻</span>");
+				$(".mask").css({
+					display:"block"
+				})
 			},
 
 		};	
