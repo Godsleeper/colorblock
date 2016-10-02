@@ -16,11 +16,12 @@
             cursor: pointer;
         }
     	.main{
+            position:relative;
             display: none;
     		background: url(./images/background.jpg)no-repeat;
     		background-size:cover;
-    		height: 100%;
-			width: 100%;
+    		height:100%;
+			width:100%;
             cursor: pointer;
             -webkit-tap-highlight-color:transparent;
     	}
@@ -37,38 +38,61 @@
     	.main .colorblock{
     		background: #fff;
     		border: 4px solid #FFD201;
-    		border-radius: 5px;
-    		position: absolute;
-    		left:50%;
-    		margin-left: -120px;
-    		top:20%;
+    		border-radius:5px;
+            position:absolute;
+            top:100px;
+            left:50%;
+            margin-left: -120px;
     	}
     	.main .nav{
-    		position:absolute;
-    		top:0;
-    		left: 0;
+            position:absolute;
+            top: 0;
+            left: 0;
+            height: 100px;
     		width:100%;
-    		height:20%;
-    		font-size: 16px;
+    		font-size: 24px;
     		font-weight: bold;
     	}
-    	.main .nav .next{
-    		position:absolute;
-    		width: 50%;
-    		left: 0;
-    		top:25%;
-    		text-align: center;
-    	}
-    	.main .nav .score{
-    		position:absolute;
-    		width:50%;
-    		left:50%;
-    		text-align: center;
-    		top:25%;
-    	}
-    	.main .nav .score .scorenumber,.nextblock{
-    		color:#FF3C3C;
-    	}
+        .main .nav .nav_title{
+            width: 100%;
+            height:50px;
+        }
+        .main .nav .nav_content{
+            width: 100%;
+            height: 30px;
+            font-size: 20px;
+            font-weight:normal;
+            
+        }
+        .main .nav .nav_block{
+            width:50%;
+            float: left;
+            text-align: center;
+            height:50px;
+            line-height: 50px;
+        }
+        .main .nav .nav_content .nav_block{
+            color:#FF3C3C;
+            height:30px;
+            line-height: 30px; 
+        }
+        .main .speedup{
+            width: 100%;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            position:absolute;
+            bottom:5px;
+        }
+        .main .speedup span{
+            display:block;
+            width: 120px;
+            margin: 0 auto;
+            height:30px;
+            background: #FF3C3C;
+            color:#fff;
+            border-radius: 5px;
+        }
     	.mask .mention{
     		height:360px;
     		position:absolute;
@@ -142,16 +166,17 @@
 	</div>
 	<div class="main">
 		<div class="nav">
-			<div class="next">
-				<div>NEXT</div>
-				<div class="nextblock"></div>
+			<div class="nav_title">
+				<div class="nav_block">NEXT</div>
+                <div class="nav_block">SCORE</div>
 			</div>
-			<div class="score">
-				<div>SCORE</div>
-				<div class="scorenumber">&nbsp;0&nbsp;</div>
+			<div class="nav_content">
+				<div class="nav_block">1</div>
+				<div class="nav_block">&nbsp;0&nbsp;</div>
 			</div>
 		</div>
 		<canvas class="colorblock" id="colorblock" width="240" height="420"></canvas>
+        <div class="speedup"><span>DOWN!</span></div>
 	</div>
     <script type="text/javascript" src="./lib/zepto.min.js" ></script>
     <script type="text/javascript" src="./lib/fastclick.js" ></script>

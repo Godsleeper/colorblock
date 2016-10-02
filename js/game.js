@@ -157,6 +157,7 @@ $(function(){
 			block:new block(1),
 			matrix:new Array(21),
 			score:0,//分数
+			next:1,
 			init:function(){
 				var that=this;
 				for(var i=0;i<21;i++){
@@ -172,10 +173,17 @@ $(function(){
 						that.setSite(-1)
 					}else if(x>1*clickbound&&x<=2*clickbound){
 						//that.rotate();
+						console.log("hello");
 					}else{
 						that.setSite(1);}
 						return false;
 					})
+				$(".speedup").click((event)=>{
+					event.stopPropagation();
+					 if(that.block.speed == config.SPEED){
+                     	that.block.speedUp(); // 加速
+					 }
+				})
 			},
 			start:function(){
 				var that=this;
