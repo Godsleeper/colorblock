@@ -128,7 +128,7 @@ $(function(){
                 this.speed = 1;
                 this.defer = 0;
             };
-            //
+            //检测是否下落
             this.isReady=function(){
             	return this.speed==this.defer;
             };
@@ -150,7 +150,7 @@ $(function(){
 						ctx.drawImage(this.bgimg,j*cell,i*cell,this.bgimg.width,this.bgimg.height);
 					}
 				}
-				$(".main").on("click",(event)=>{
+				$(".main").tap((event)=>{
 					var x=event.pageX;
 					if(x>=0&&x<=clickbound*1){
 						that.setSite(-1)
@@ -241,7 +241,11 @@ $(function(){
 				}
 			},
 			reachBottom:function(){
-
+				var that=this;
+				var i=0;
+				var j=0;
+				var length=that.block.shame.length;
+				var o;
 			},
 
 		};	
