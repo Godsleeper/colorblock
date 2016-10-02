@@ -150,7 +150,7 @@ $(function(){
 						ctx.drawImage(this.bgimg,j*cell,i*cell,this.bgimg.width,this.bgimg.height);
 					}
 				}
-				$(".main").tap((event)=>{
+				$(".main").click((event)=>{
 					var x=event.pageX;
 					if(x>=0&&x<=clickbound*1){
 						that.setSite(-1)

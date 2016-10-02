@@ -153,7 +153,13 @@
 		</div>
 		<canvas class="colorblock" id="colorblock" width="240" height="420"></canvas>
 	</div>
-	<script type="text/javascript" src="./lib/zepto.min.js" ></script>
+    <script type="text/javascript" src="./lib/zepto.min.js" ></script>
+    <script type="text/javascript" src="./lib/fastclick.js" ></script>
+    <script type="text/javascript">
+        $(function() {
+            FastClick.attach(document.body);
+        });
+    </script>
 	<script type="text/javascript" src="./js/game.js" ></script>
 </body>
 </html>
