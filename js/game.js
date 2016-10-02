@@ -152,6 +152,7 @@ $(function(){
 						//that.rotate();
 					}else{
 						that.setSite(1);}
+						return false;
 					})
 			},
 			start:function(){
