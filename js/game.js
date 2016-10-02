@@ -88,28 +88,44 @@ $(function(){
             				{i:this.i-3,j:this.j,color:color[3]}]
             	break;
             	case 2://土
-            	this.shame=[{i:this.i,j:this.j-1},
-            				{i:this.i-1,j:this.j},
-            				{i:this.i,j:this.j},
-            				{i:this.i,j:this.j+1}]
+            	var color=[];
+            	for(var k=0;k<4;k++){
+            		color.push(random(4));
+            	}
+            	this.shame=[{i:this.i,j:this.j-1,color:color[0]},
+            				{i:this.i-1,j:this.j,color:color[1]},
+            				{i:this.i,j:this.j,color:color[2]},
+            				{i:this.i,j:this.j+1,color:color[3]}]
             	break;
             	case 3://L
-            	this.shame= [{i: this.i - 2, j: this.j - 1},
-                        	 {i: this.i - 1, j: this.j - 1},
-                        	 {i: this.i, j: this.j - 1},
-                        	 {i: this.i, j: this.j}];
+            	var color=[];
+            	for(var k=0;k<4;k++){
+            		color.push(random(4));
+            	}
+            	this.shame= [{i: this.i - 2, j: this.j - 1,color:color[0]},
+                        	 {i: this.i - 1, j: this.j - 1,color:color[1]},
+                        	 {i: this.i, j: this.j - 1,color:color[2]},
+                        	 {i: this.i, j: this.j,color:color[3]}];
                 break;
                 case 4://田
-                this.shame=[{i: this.i - 1, j: this.j - 1},
-                        	{i: this.i, j: this.j - 1},
-                        	{i: this.i, j: this.j},
-                        	{i: this.i - 1, j: this.j}];
+                var color=[];
+            	for(var k=0;k<4;k++){
+            		color.push(random(4));
+            	}
+                this.shame=[{i: this.i - 1, j: this.j - 1,color:color[0]},
+                        	{i: this.i, j: this.j - 1,color:color[1]},
+                        	{i: this.i, j: this.j,color:color[2]},
+                        	{i: this.i - 1, j: this.j,color:color[3]}];
                 break;
                 case 5://转
-                this.shame=[{i: this.i - 1, j: this.j - 1},
-                        	{i: this.i, j: this.j - 1},
-                        	{i: this.i, j: this.j},
-                        	{i: this.i + 1, j: this.j}];
+                var color=[];
+            	for(var k=0;k<4;k++){
+            		color.push(random(4));
+            	}
+                this.shame=[{i: this.i - 1, j: this.j - 1,color:color[0]},
+                        	{i: this.i, j: this.j - 1,color:color[1]},
+                        	{i: this.i, j: this.j,color:color[2]},
+                        	{i: this.i + 1, j: this.j,color:color[3]}];
                 break;
             }
             //下落方块
@@ -166,7 +182,7 @@ $(function(){
 				timer=setInterval(()=>{
 					this.block.dropBlock();//下落
 					this.refresh();//刷新矩阵
-					//this.reachBottom();//检测是否碰到地板或有方块
+					this.reachBottom();//检测是否碰到地板或有方块
 
 				},config.TIME);
 			},
@@ -200,6 +216,10 @@ $(function(){
 					item.forEach((i,j)=>{
 						switch(i){
 							case -1:img=that.bgimg;break;
+							case 1:img=that.blockimg[0];break;
+							case 2:img=that.blockimg[1];break;
+							case 3:img=that.blockimg[2];break;
+							case 4:img=that.blockimg[3];break;
 							case 5:img=that.blockimg[0];break;
 							case 6:img=that.blockimg[1];break;
 							case 7:img=that.blockimg[2];break;
@@ -245,7 +265,27 @@ $(function(){
 				var i=0;
 				var j=0;
 				var length=that.block.shame.length;
-				var o;
+				var xy;
+				if(that.block.isReady()){
+					for(j=0;j<length;j++){
+						xy=that.block.shame[j];
+						if(xy.i>=0&&(xy.i==20||that.matrix[xy.i+1][xy.j]==1||that.matrix[xy.i+1][xy.j]==2||that.matrix[xy.i+1][xy.j]==3||that.matrix[xy.i+1][xy.j]==4)){
+							break;
+						}
+					}
+
+					if(j<length){
+						for(i=0;i<length;i++){
+							xy=that.block.shame[i];
+							if(xy.i>=0){
+								that.matrix[xy.i][xy.j]=xy.color;
+							}else{
+								return;
+							}
+						}
+						that.block = new block(parseInt(Math.random()*5)+1);
+					}
+				}
 			},
 
 		};	
