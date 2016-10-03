@@ -347,7 +347,6 @@ $(function(){
                 }
 			},
 			detectTree:function(){
-				console.log(background.matrix[20])
 				//横=>层遍历
 				for(let i=0;i<background.matrix.length;i++){
 					var strArr=background.matrix[i].join("");
@@ -363,7 +362,6 @@ $(function(){
 						background.matrix[i][j]=parseInt(strArr[j]);
 					}
 				}
-				console.log(background.matrix[20])
 			},
 			detectMat:function () { // 检测矩阵，判断是否有连续一行，返回一个数组
                 var count = 0, s,
