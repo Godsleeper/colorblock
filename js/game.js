@@ -346,26 +346,26 @@ $(function(){
                     }
                 }
 			},
-			// detectTree:function(){
-			// 	//横=>层遍历
-			// 	console.log(background.matrix);
-			// 	for(let i=0;i<background.matrix.length;i++){
-			// 		var strArr=background.matrix[i].join("");
-			// 		strArr=strArr.replace(/(1{3})|(2{3})|(3{3})|(4{3})/g,"000");
-			// 		strArr=strArr.split("");
-			// 		for(let j=0;j<background.matrix[i].length;j++){
-			// 			background.matrix[i][j]=strArr[j];
-			// 		}
-			// 	}
-			// 	// background.matrix.forEach((item,index)=>{
-			// 	// 	var strArr=item.join("");
-			// 	// 	strArr=strArr.replace(/(1{3})|(2{3})|(3{3})|(4{3})/g,"000");
-			// 	// 	item=strArr.split("");
-			// 	// })
-			// },
-			// ruinBlock:function(){
-			// }
-			detectMat: function () { // 检测矩阵，判断是否有连续一行，返回一个数组
+			detectTree:function(){
+				console.log(background.matrix[20])
+				//横=>层遍历
+				for(let i=0;i<background.matrix.length;i++){
+					var strArr=background.matrix[i].join("");
+					strArr=strArr.replace(/(1{3})|(2{3})|(3{3})|(4{3})/g,"-1-1-1");
+					strArr=strArr.replace(/-1/g,"$")
+					strArr=strArr.split("");
+					for(let k=0;k<strArr.length;k++){
+						if(strArr[k]=="$"){
+							strArr[k]=-1;
+						}
+					}
+					for(let j=0;j<background.matrix[i].length;j++){
+						background.matrix[i][j]=parseInt(strArr[j]);
+					}
+				}
+				console.log(background.matrix[20])
+			},
+			detectMat:function () { // 检测矩阵，判断是否有连续一行，返回一个数组
                 var count = 0, s,
                     detecta = []; // 需要爆破的行号
                 this.matrix.forEach(function (l, i) {
@@ -380,7 +380,7 @@ $(function(){
             ruinMat: function () { // 爆破连续的一行
                 var dmat = this.detectMat(); // 返回整行都有方块的行号集合
                 if(dmat){
-                    this.score = this.score + (dmat.length == 1 ? 100 : dmat.length == 2 ? 250 : dmat.length == 3 ? 450 : 700);
+                    this.score = this.score + (dmat.length == 1 ? 10 : dmat.length == 2 ? 25 : dmat.length == 3 ? 45 : 100);
                     $("#score").text(this.score.toString());
                     dmat.forEach(function (d) {
                         background.matrix.splice(d, 1); // 删掉整行都有方块的行
